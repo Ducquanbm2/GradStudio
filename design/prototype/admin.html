@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio console - GradStudio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-shell">
+  <header class="app-header"><div class="wrap nav"><a class="brand" href="index.html"><span class="brand-mark">GS</span><span>GradStudio / Studio console</span></a><span class="nav-note"><span class="avatar" style="width:30px;height:30px">T</span> Thảo · Admin</span></div></header>
+  <main class="wrap app-main">
+    <div class="crumbs"><a href="index.html">Customer view</a><span>/</span><span>Studio staff: mở cuộc hội thoại</span></div>
+    <div class="page-title"><div><p class="eyebrow">Studio desk / 02</p><h1>Chốt một lịch<br>đủ điều kiện.</h1><p>Conversation, resource check và booking form ở cùng một mặt phẳng làm việc.</p></div><span class="status"><span class="dot"></span> 3 yêu cầu đang mở</span></div>
+
+    <div class="console-grid">
+      <nav class="side-nav" aria-label="Studio navigation">
+        <a class="active" href="admin.html"><span class="nav-icon">◎</span><span>Inbox</span></a>
+        <a href="#booking-form"><span class="nav-icon">▣</span><span>Booking board</span></a>
+        <a href="#resource-check"><span class="nav-icon">◫</span><span>Resource map</span></a>
+        <a href="#booking-form"><span class="nav-icon">✓</span><span>Tasks</span></a>
+      </nav>
+
+      <section>
+        <div class="panel">
+          <div class="panel-head"><div><h2>Inbox</h2><p>Chọn một conversation để tiếp tục tư vấn.</p></div><span class="status waiting">2 chờ phản hồi</span></div>
+          <div class="convo-list">
+            <article class="convo-item selected"><div class="convo-item-top"><strong>Nguyễn Thùy Linh</strong><small>09:20</small></div><p class="convo-preview">Gói tốt nghiệp có makeup còn lịch 24/10...</p><span class="status waiting">Đã chốt lịch</span></article>
+            <article class="convo-item"><div class="convo-item-top"><strong>Minh Khang</strong><small>08:48</small></div><p class="convo-preview">Mình muốn hỏi gói chân dung CV.</p><span class="status">Đang tư vấn</span></article>
+            <article class="convo-item"><div class="convo-item-top"><strong>Lớp 12A3</strong><small>Hôm qua</small></div><p class="convo-preview">Cần báo giá cho 35 người...</p><span class="status">Chưa trả lời</span></article>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><div><h2>Nguyễn Thùy Linh</h2><p>Gói tốt nghiệp · Conversation #CNV-1024</p></div><span class="status"><span class="dot"></span> Đã chốt lịch</span></div>
+          <div class="thread">
+            <div class="message customer"><small>Linh · 09:18</small>Gói tốt nghiệp có makeup còn lịch 24/10 lúc 09:00 không?</div>
+            <div class="message"><small>Thảo · 09:22</small>09:00 hiện chưa đủ người. Mình đang kiểm tra một khung giờ khác để bạn vẫn có makeup trước buổi chụp.</div>
+            <div class="message"><small>Thảo · 09:27</small>Mình đề xuất makeup 13:00-14:00 với Mai, sau đó chụp 14:00-16:00 với Tuấn tại Phòng B.</div>
+            <div class="message customer"><small>Linh · 09:29</small>Dạ em chốt lịch 14:00 ạ.</div>
+          </div>
+          <div class="alert"><span class="alert-icon">!</span><span><strong>09:00 unavailable.</strong> Mai - Makeup đang bận 08:00-12:00. Slot 14:00 đã được khách đồng ý.</span></div>
+          <div class="composer"><input aria-label="Tin nhắn mới" value="Nhập tin nhắn..." readonly><button class="button disabled" type="button" disabled>Gửi</button></div>
+          <p class="notice">Gửi tin nhắn chưa có trang đích trong prototype.</p>
+        </div>
+
+        <div class="panel" id="booking-form">
+          <div class="panel-head"><div><h2>Booking mới</h2><p>Form chỉ mở sau khi customer đã đồng ý giờ.</p></div><span class="status"><span class="dot"></span> Ready</span></div>
+          <div class="form-grid">
+            <div class="field"><label>Customer</label><div class="field-value"><strong>Nguyễn Thùy Linh</strong></div></div>
+            <div class="field"><label>Booking code</label><div class="field-value"><strong>GS-1024</strong></div></div>
+            <div class="field"><label>Shoot type</label><div class="field-value">Tốt nghiệp cá nhân</div></div>
+            <div class="field"><label>Package</label><div class="field-value">Tốt nghiệp Premium · 2 giờ · 30 ảnh chỉnh</div></div>
+            <div class="field"><label>Date</label><div class="field-value">Thứ Bảy, 24/10/2026</div></div>
+            <div class="field"><label>Shoot time</label><div class="field-value">14:00 - 16:00</div></div>
+            <div class="field"><label>Makeup</label><div class="field-value">Có · Mai · 13:00 - 14:00</div></div>
+            <div class="field"><label>Room</label><div class="field-value">Phòng B</div></div>
+            <div class="field"><label>Total</label><div class="field-value money">1.800.000đ</div></div>
+            <div class="field"><label>Deposit / balance</label><div class="field-value money">540.000đ / 1.260.000đ</div></div>
+          </div>
+          <div class="form-footer"><p class="form-note">Booking sẽ bắt đầu ở trạng thái <strong>Chờ cọc 30%</strong>. Lịch chỉ được giữ chính thức sau khi gateway báo thành công.</p><a class="button" href="booking.html">Tạo booking →</a></div>
+        </div>
+      </section>
+
+      <aside id="resource-check">
+        <div class="panel"><div class="panel-head"><div><h2>Resource check</h2><p>Availability tại 24/10/2026</p></div></div>
+          <div class="resource-stack">
+            <div class="resource"><span class="resource-mark">M</span><div><strong>Mai - Makeup</strong><span>13:00 - 14:00</span></div><span class="resource-status">Available</span></div>
+            <div class="resource"><span class="resource-mark">T</span><div><strong>Tuấn - Photographer</strong><span>14:00 - 16:00</span></div><span class="resource-status">Available</span></div>
+            <div class="resource"><span class="resource-mark">B</span><div><strong>Phòng B</strong><span>14:00 - 16:00</span></div><span class="resource-status">Available</span></div>
+          </div>
+        </div>
+        <div class="panel"><div class="panel-head"><div><h2>Timeline scan</h2><p>Không chỉ dùng màu để báo xung đột.</p></div></div>
+          <div class="calendar">
+            <div class="calendar-row"><span class="calendar-time">09:00</span><div class="calendar-track"><span class="booking-chip blocked"><strong>Mai - Makeup</strong><span>Busy · 08:00-12:00</span></span></div></div>
+            <div class="calendar-row"><span class="calendar-time">13:00</span><div class="calendar-track"><span class="booking-chip"><strong>Mai - Linh</strong><span>Makeup · 13:00-14:00</span></span></div></div>
+            <div class="calendar-row"><span class="calendar-time">14:00</span><div class="calendar-track"><span class="booking-chip"><strong>Tuấn + Phòng B</strong><span>Linh · Shoot · 14:00-16:00</span></span></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
