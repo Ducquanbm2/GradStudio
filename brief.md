@@ -197,3 +197,119 @@ Không tạo evidence giả.
 - Ưu tiên hoàn thành sản phẩm theo rubric hơn giao diện cầu kỳ.
 
 **Hãy bắt đầu triển khai ngay, không cần hỏi lại các quyết định đã được xác định.**
+
+# Prompt 3
+
+# TASK — REDESIGN GRADSTUDIO PA#2
+
+Tôi đã hoàn thành implementation ban đầu của PA#2. Tuy nhiên, giao diện hiện tại quá giống prototype GradStudio gốc.
+
+Tôi muốn thực hiện một UI/UX redesign để xây dựng visual identity riêng cho team.
+
+## 1. Design Direction
+
+Sử dụng phong cách:
+
+**Modern, Fresh, Minimal, Premium Photography Studio.**
+
+Màu chủ đạo: **Trắng + Xanh dương tươi (White & Fresh Blue)**.
+
+Design tokens đề xuất:
+
+- White: `#FFFFFF`
+- Primary Blue: `#2563EB`
+- Fresh Blue: `#3B82F6`
+- Light Blue: `#EFF6FF`
+- Neutral Surface: `#F8FAFC`
+- Dark Text: `#0F172A`
+- Border: `#DBEAFE`
+
+Ưu tiên nền trắng, khoảng trắng rộng rãi, màu xanh dương làm điểm nhấn. Typography hiện đại, card tinh giản, bo góc mềm, không dùng gradient quá nhiều hoặc hiệu ứng rườm rà.
+
+Đảm bảo contrast tối thiểu 4.5:1 đối với văn bản thông thường.
+
+## 2. Mục tiêu redesign
+
+Thiết kế lại cả ba màn hình:
+
+1. Services & Chat — phong cách creative studio landing page.
+2. Advice & Clash Handling — phong cách modern booking workspace.
+3. Appointment Review & Deposit — phong cách clean booking confirmation và timeline.
+
+Không sao chép bố cục, visual hierarchy hay cách trình bày của prototype gốc.
+
+Được phép thay đổi:
+
+- Layout.
+- Header và navigation.
+- Service cards.
+- Chat UI.
+- Resource calendar.
+- Booking form.
+- Appointment timeline.
+- Payment summary.
+- Typography, spacing, colors, iconography.
+
+## 3. Những gì phải giữ nguyên
+
+Tuân thủ toàn bộ `GradStudio-final-project-brief.pdf` và `PA2-rubric-responsive-prototype.pdf`.
+
+Bắt buộc giữ:
+
+- React + Vite.
+- Đúng ba hash routes.
+- Luồng Customer → Admin → Customer.
+- Toàn bộ functional requirements.
+- Dữ liệu và trạng thái booking GS-1024.
+- Danh sách Fix these.
+- Navigation semantic.
+- Accessibility requirements.
+- Responsive ở 360px, 768px, 1280px.
+
+Không thêm backend, payment gateway hoặc dependency không cần thiết.
+
+## 4. Git History
+
+Giữ nguyên tất cả commit hiện tại, bao gồm hai commit setup project và các commit PA#2 đã thực hiện.
+
+Không reset, rebase, squash hoặc rewrite Git history.
+
+Sau khi redesign và kiểm thử, tạo commit mới:
+
+`style(pa2): redesign UI with white and fresh blue identity`
+
+Nếu có nhiều thay đổi độc lập, có thể chia thành nhiều commit có ý nghĩa.
+
+Không tạo commit giả và không tự push remote.
+
+## 5. QA sau redesign
+
+Sau khi hoàn thành:
+
+1. Kiểm tra lại ba màn hình và toàn bộ Fix these.
+2. Kiểm thử ở 360px, 768px, 1280px.
+3. Kiểm tra overflow, clipping, overlapping.
+4. Kiểm tra tap targets tối thiểu 44px.
+5. Kiểm tra contrast và semantic HTML.
+6. Kiểm tra W3C Validator trên rendered HTML của từng React route.
+7. Chạy lại `npm run build` và `npx vite preview`.
+8. Kiểm tra các route hoạt động khi chặn mạng ngoài.
+9. Cập nhật `PROTOTYPE.md` phần Design Choices.
+10. Cập nhật `AI-LOG.md` với quá trình redesign thực tế.
+11. Chụp lại 9 full-page screenshots.
+12. Cập nhật self-assessment nếu có thay đổi ảnh hưởng đến điểm.
+
+Chỉ báo PASS đối với các bước thực sự đã kiểm thử.
+
+## 6. Kết quả
+
+Báo cáo:
+
+- Design changes.
+- Component changes.
+- Kết quả QA.
+- Files modified.
+- Git commit hash.
+- Những vấn đề còn tồn tại.
+
+**Hãy triển khai redesign trực tiếp trên codebase hiện tại, bảo toàn chức năng và Git history.**

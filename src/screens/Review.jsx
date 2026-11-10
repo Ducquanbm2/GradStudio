@@ -1,3 +1,4 @@
+import Icon from '../components/Icon.jsx';
 import {
   agreedStatus, appointment, appointmentWeek, deposit, formatInterval, formatPrice,
   holdPolicy, remaining,
@@ -8,12 +9,14 @@ const {
   packageName, price, requested, shoot, shootType,
 } = appointment;
 
-function Schedule() {
+function Week() {
   return (
-    <section className="surface stack" aria-labelledby="schedule-title">
-      <h2 id="schedule-title">Lịch tuần</h2>
-      <p><strong>Ngày đã thống nhất</strong> · <time dateTime={date}>{dateLabel}</time></p>
-      <ol className="week" aria-label="Tuần chứa ngày chụp">
+    <section className="week-panel stack" aria-labelledby="schedule-title">
+      <div className="section-heading">
+        <h2 id="schedule-title">Lịch tuần</h2>
+        <p className="muted"><strong>Ngày đã thống nhất</strong> · <time dateTime={date}>{dateLabel}</time></p>
+      </div>
+      <ol className="week" role="list" aria-label="Tuần chứa ngày chụp">
         {appointmentWeek.map(({ weekday, date, day, label, current }) => (
           <li key={date} className="week-day" aria-label={label} aria-current={current ? 'date' : undefined}>
             <span>{weekday}</span>
@@ -21,9 +24,15 @@ function Schedule() {
           </li>
         ))}
       </ol>
+    </section>
+  );
+}
 
-      <h3>Các mốc trong ngày chụp</h3>
-      <ol className="timeline">
+function Milestones() {
+  return (
+    <section className="surface stack" aria-labelledby="milestones-title">
+      <h2 id="milestones-title">Các mốc trong ngày chụp</h2>
+      <ol className="timeline" role="list">
         <li className="timeline-entry original">
           <p><del><time dateTime={requested}>{requested}</time></del></p>
           <p>Giờ yêu cầu ban đầu · Đã thay bằng giờ chiều</p>
@@ -43,20 +52,23 @@ function Schedule() {
 
 function BookingSummary() {
   const amounts = [
-    ['Giá gói', price],
-    [`Cọc ${depositRate}%`, deposit],
-    [`Còn lại ${100 - depositRate}%`, remaining],
+    { label: 'Giá gói', amount: price },
+    { label: `Cọc ${depositRate}%`, amount: deposit, highlight: true },
+    { label: `Còn lại ${100 - depositRate}%`, amount: remaining },
   ];
 
   return (
     <section className="surface stack booking-summary" aria-labelledby="booking-title">
-      <p className="eyebrow">{code} · {customer}</p>
+      <div className="panel-heading">
+        <span className="icon-tile"><Icon name="card" /></span>
+        <p className="record-code">{code}</p>
+      </div>
       <h2 id="booking-title">{packageName}</h2>
       <p className="status">{agreedStatus}</p>
       <p className="muted">{shootType} · {durationHours} giờ · {editedPhotos} ảnh chỉnh</p>
       <dl className="amounts">
-        {amounts.map(([label, amount]) => (
-          <div className="amount-row" key={label}>
+        {amounts.map(({ label, amount, highlight }) => (
+          <div className={highlight ? 'amount-row deposit-amount' : 'amount-row'} key={label}>
             <dt>{label}</dt>
             <dd>{formatPrice(amount)}</dd>
           </div>
@@ -71,14 +83,18 @@ function BookingSummary() {
 
 export default function Review() {
   return (
-    <div className="stack review-page">
-      <div className="stack">
-        <p className="eyebrow">LỊCH HẸN CỦA {customer.toLocaleUpperCase('vi-VN')}</p>
-        <h1>Lịch chụp của tôi</h1>
-        <p className="intro">Xem lại giờ make-up, giờ chụp và số tiền cọc của lịch đã thống nhất với studio.</p>
-      </div>
+    <div className="review-page stack">
+      <header className="review-heading">
+        <div className="stack">
+          <p className="eyebrow">LỊCH HẸN CỦA {customer.toLocaleUpperCase('vi-VN')}</p>
+          <h1>Lịch chụp của tôi</h1>
+          <p className="intro">Xem lại giờ make-up, giờ chụp và số tiền cọc của lịch đã thống nhất với studio.</p>
+        </div>
+        <span className="review-mark"><Icon name="calendar" /></span>
+      </header>
+      <Week />
       <div className="review-layout">
-        <Schedule />
+        <Milestones />
         <BookingSummary />
       </div>
     </div>

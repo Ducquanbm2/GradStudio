@@ -4,6 +4,7 @@ import Services from './screens/Services.jsx';
 import Advice from './screens/Advice.jsx';
 import Review from './screens/Review.jsx';
 import { appointment } from './data.js';
+import Icon from './components/Icon.jsx';
 import './styles.css';
 
 const routes = {
@@ -46,16 +47,20 @@ function App() {
       <header className="site-header">
         <nav className="shell site-nav" aria-label="Điều hướng chính">
           <a className="wordmark" href="#/" aria-label="GradStudio, trang dịch vụ">
-            <span className="brand-mark" aria-hidden="true">G</span> GradStudio
+            <span className="brand-mark"><Icon name="frame" /></span>
+            <span>Grad<span className="brand-accent">Studio</span></span>
           </a>
-          <span className="role-label">{route.role}</span>
+          <span className="role-label"><span className="role-dot" aria-hidden="true" />{route.role}</span>
         </nav>
       </header>
       <main className="shell page" ref={main} tabIndex={-1}>
         <Screen />
       </main>
       <footer className="site-footer">
-        <div className="shell">GradStudio · Studio ảnh tốt nghiệp và chân dung</div>
+        <div className="shell footer-content">
+          <strong>GradStudio</strong>
+          <span>Studio ảnh tốt nghiệp và chân dung</span>
+        </div>
       </footer>
     </>
   );

@@ -1,10 +1,13 @@
 export function Conversation({ messages }) {
   return (
-    <ol className="messages" aria-label="Tin nhắn theo thứ tự thời gian">
+    <ol className="messages" role="list" aria-label="Tin nhắn theo thứ tự thời gian">
       {messages.map(({ from, time, side, text }) => (
         <li key={time} className={`message message-${side}`}>
-          <p className="message-meta"><strong>{from}</strong> <time dateTime={time}>{time}</time></p>
-          <p>{text}</p>
+          <span className="avatar" aria-hidden="true">{from[0]}</span>
+          <div className="message-body">
+            <p className="message-meta"><strong>{from}</strong> <time dateTime={time}>{time}</time></p>
+            <p>{text}</p>
+          </div>
         </li>
       ))}
     </ol>

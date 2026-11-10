@@ -1,4 +1,5 @@
 import { Conversation, UnavailableComposer } from '../components/Conversation.jsx';
+import Icon from '../components/Icon.jsx';
 import {
   agreedMessages, alternateShoot, appointment, bookingStatuses, conversationStatuses,
   deposit, formatInterval, formatPrice, inbox, remaining,
@@ -11,12 +12,15 @@ function Inbox() {
   return (
     <section className="surface stack inbox" aria-labelledby="inbox-title">
       <h2 id="inbox-title">Danh sách hội thoại</h2>
-      <ul className="inbox-list">
+      <ul className="inbox-list" role="list">
         {inbox.map(({ name, preview, status, current }) => (
           <li key={name} className={current ? 'inbox-entry current' : 'inbox-entry'} aria-current={current ? 'true' : undefined}>
-            <p><strong>{name}</strong>{current && <span className="muted"> · Đang mở</span>}</p>
-            <p className="muted">{preview}</p>
-            <p className={current ? 'status agreed' : 'status'}>{status}</p>
+            <span className="avatar" aria-hidden="true">{name[0]}</span>
+            <div className="inbox-detail">
+              <p><strong>{name}</strong>{current && <span className="muted"> · Đang mở</span>}</p>
+              <p className="muted">{preview}</p>
+              <p className={current ? 'status agreed' : 'status'}>{status}</p>
+            </div>
           </li>
         ))}
       </ul>
@@ -27,7 +31,6 @@ function Inbox() {
 function BookingDraft() {
   const fields = [
     ['Khách hàng', customer],
-    ['Mã booking', code],
     ['Loại buổi chụp', shootType],
     ['Gói', `${packageName} · ${durationHours} giờ · ${editedPhotos} ảnh chỉnh`],
     ['Ngày', <time dateTime={date}>{dateLabel}</time>],
@@ -39,8 +42,11 @@ function BookingDraft() {
   ];
 
   return (
-    <section className="surface stack" aria-labelledby="booking-draft-title">
-      <h2 id="booking-draft-title">Booking mới</h2>
+    <section className="surface stack booking-draft" aria-labelledby="booking-draft-title">
+      <div className="panel-heading">
+        <h2 id="booking-draft-title">Booking mới</h2>
+        <p className="record-code">{code}</p>
+      </div>
       <p className="muted">Thông tin điền sẵn từ hội thoại đã chốt với {customer}.</p>
       <dl className="facts">
         {fields.map(([label, value]) => (
@@ -50,9 +56,9 @@ function BookingDraft() {
           </div>
         ))}
       </dl>
-      <p className="muted">Booking bắt đầu ở trạng thái <strong>{bookingStatuses.awaitingDeposit}</strong>. {customer} tiếp tục ở mục Lịch chụp của tôi.</p>
-      <div>
-        <a className="button" href="#/review">Tạo booking <span aria-hidden="true">→</span></a>
+      <div className="booking-handoff">
+        <p>Booking bắt đầu ở trạng thái <strong>{bookingStatuses.awaitingDeposit}</strong>. {customer} tiếp tục ở mục Lịch chụp của tôi.</p>
+        <a className="button" href="#/review">Tạo booking <Icon name="arrow" /></a>
       </div>
     </section>
   );
@@ -61,51 +67,64 @@ function BookingDraft() {
 function ResourceCalendar() {
   return (
     <section className="surface stack resources" aria-labelledby="resources-title">
-      <h2 id="resources-title">Lịch tài nguyên</h2>
-      <p className="muted"><time dateTime={date}>{dateLabel}</time></p>
-      <ul className="resource-list">
-        <li className="resource-entry conflict">
-          <strong>{requested} · Trùng lịch</strong>
-          <p>{conflict.staff} bận {formatInterval(conflict)}. Khung giờ yêu cầu không đủ người làm make-up.</p>
-        </li>
+      <div className="icon-heading">
+        <span className="icon-tile"><Icon name="calendar" /></span>
+        <h2 id="resources-title">Lịch tài nguyên</h2>
+      </div>
+      <p className="resource-alert">
+        <Icon name="warning" />
+        <span><strong>{requested} · Trùng lịch</strong> {conflict.staff} bận {formatInterval(conflict)}. Khung giờ yêu cầu không đủ người làm make-up.</span>
+      </p>
+      <ol className="resource-list" role="list" aria-label="Tài nguyên theo giờ đã thống nhất">
         <li className="resource-entry">
           <strong>{formatInterval(makeup)} · Make-up</strong>
-          <p>{makeup.staff} có lịch trống.</p>
+          <p className="muted">{makeup.staff} có lịch trống.</p>
         </li>
         <li className="resource-entry">
           <strong>{formatInterval(shoot)} · Chụp ảnh</strong>
-          <p>{shoot.staff} và {shoot.room} có lịch trống.</p>
+          <p className="muted">{shoot.staff} và {shoot.room} có lịch trống.</p>
         </li>
-      </ul>
-      <h3>Giờ đề xuất</h3>
-      <ul className="resource-list">
-        <li className="resource-entry agreed-slot">
-          <strong>{shoot.start} đã chọn</strong>
-          <p>Make-up từ {makeup.start}. {customer} đã đồng ý trong chat.</p>
-        </li>
-        <li className="resource-entry">
-          <strong>{alternateShoot}</strong>
-          <p>Khung giờ thay thế trong danh sách đề xuất.</p>
-        </li>
-      </ul>
+      </ol>
+      <div className="suggestions">
+        <h3>Giờ đề xuất</h3>
+        <ul className="suggestion-list" role="list">
+          <li className="agreed-slot">
+            <strong>{shoot.start} đã chọn</strong>
+            <p>Make-up từ {makeup.start}. {customer} đã đồng ý trong chat.</p>
+          </li>
+          <li>
+            <strong>{alternateShoot}</strong>
+            <p className="muted">Khung giờ thay thế trong danh sách đề xuất.</p>
+          </li>
+        </ul>
+      </div>
     </section>
   );
 }
 
 export default function Advice() {
   return (
-    <div className="stack advice-page">
-      <div className="stack">
-        <p className="eyebrow">ĐIỀU PHỐI STUDIO</p>
-        <h1>Tư vấn và lịch tài nguyên</h1>
-        <p className="intro">{admin} xem giờ đã thống nhất với {customer} trước khi tạo booking chờ cọc.</p>
-      </div>
+    <div className="advice-page stack">
+      <header className="workspace-heading">
+        <div className="stack">
+          <p className="eyebrow">ĐIỀU PHỐI STUDIO</p>
+          <h1>Tư vấn và lịch tài nguyên</h1>
+          <p className="intro">{admin} xem giờ đã thống nhất với {customer} trước khi tạo booking chờ cọc.</p>
+        </div>
+        <p className="workspace-date"><Icon name="calendar" /> <time dateTime={date}>{dateLabel}</time></p>
+      </header>
       <div className="advice-layout">
-        <Inbox />
-        <div className="stack advice-main">
-          <section className="surface stack" aria-labelledby="studio-chat-title">
+        <div className="workrail stack">
+          <ResourceCalendar />
+          <Inbox />
+        </div>
+        <div className="advice-main stack">
+          <section className="surface stack chat-panel" aria-labelledby="studio-chat-title">
             <div className="panel-heading">
-              <h2 id="studio-chat-title">Hội thoại với {customer}</h2>
+              <div className="icon-heading">
+                <span className="icon-tile"><Icon name="chat" /></span>
+                <h2 id="studio-chat-title">Hội thoại với {customer}</h2>
+              </div>
               <p className="status agreed">{conversationStatuses.agreed}</p>
             </div>
             <Conversation messages={agreedMessages} />
@@ -113,7 +132,6 @@ export default function Advice() {
           </section>
           <BookingDraft />
         </div>
-        <ResourceCalendar />
       </div>
     </div>
   );

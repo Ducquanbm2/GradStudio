@@ -48,3 +48,14 @@ Yêu cầu: Lưu prompt thật, hồ sơ nhóm, ảnh, kiểm định, bản bui
 Giữ: Ba kết quả Nu cục bộ, chín ảnh từ Chromium và phần chưa kiểm thử trong báo cáo tự đánh giá.
 Thay đổi: Ghi rõ nguồn kết quả kiểm định vì endpoint trực tuyến trả 403. Chạy lại npm ci --offline và npm run build ở thư mục sạch, so sánh dist trùng từng byte.
 Loại: Dùng ảnh hoặc kết quả từ build trước khi sửa QA.
+
+## 2026-11-11 — Redesign trắng và xanh dương
+Công cụ: Codex, ImageGen tích hợp, Chromium qua Playwright và Nu HTML Checker.
+Yêu cầu: Tạo nhận diện riêng cho ba màn PA#2 theo hướng studio hiện đại, tối giản với nền trắng và xanh dương.
+Giữ: Ba hash route và luồng chuyển vai bằng liên kết HTML. Đối chiếu dữ liệu, tên trạng thái và số tiền với fixture GS-1024. Mở trực tiếp từng màn để kiểm tra lại.
+Thay đổi: Lượt đo đầu ở 360px phát hiện các hộp chữ của tiêu đề hero chồng theo chiều dọc. Tăng line-height và điều chỉnh cỡ chữ rồi đo lại. Ảnh chụp tiếp theo cho thấy nhãn khách hàng ở trang lịch hẹn xuống hàng tại 360px. Thu khoảng cách header và bổ sung phép đo kiểm tra hai mục cùng hàng.
+Loại: Hero minh họa cũ, các hàng thẻ quy trình nằm riêng và bố cục Admin ba cột. Thay bằng ảnh WebP cục bộ, hướng dẫn cạnh chat, vùng tài nguyên cạnh khu xử lý booking và dải lịch tuần riêng. Ảnh và log trong thư mục kiểm thử lấy từ bản build sau khi sửa.
+
+### Prompt ảnh hero
+
+> Use case: photorealistic-natural. Asset type: editorial hero photograph for a premium Vietnamese graduation photography studio website with a white and fresh blue visual identity. Create a landscape 3:2 photograph of a minimalist daylight photography set. A rich cobalt-blue graduation cap with a fine blue tassel rests on a clean ivory plinth next to a simple tied white diploma, set against a pale powder-blue cyclorama. A sliver of a silver light stand at the edge quietly suggests the studio. Bright white side light with one softly defined diagonal architectural shadow, real fabric and matte materials, gallery-like art direction and generous breathing room. Place the main objects in the central area so a tighter crop still shows both. No people, faces, logos, lettering, watermarks, UI or frames.
