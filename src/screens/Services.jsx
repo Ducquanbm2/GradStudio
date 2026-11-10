@@ -40,7 +40,7 @@ export default function Services() {
         <h2 id="catalogue-title">Dịch vụ chụp ảnh</h2>
         <ul className="card-grid">
           {services.map(({ id, name, price, unit, description }) => (
-            <li key={id} className="surface service-card stack">
+            <li key={id} className="surface stack">
               <h3>{name}</h3>
               <p className="price">Từ <strong>{formatPrice(price)}{unit}</strong></p>
               <p className="muted">{description}</p>

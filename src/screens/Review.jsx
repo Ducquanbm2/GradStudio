@@ -14,8 +14,8 @@ function Schedule() {
       <h2 id="schedule-title">Lịch tuần</h2>
       <p><strong>Ngày đã thống nhất</strong> · <time dateTime={date}>{dateLabel}</time></p>
       <ol className="week" aria-label="Tuần chứa ngày chụp">
-        {appointmentWeek.map(({ weekday, date, day, current }) => (
-          <li key={date} className="week-day" aria-current={current ? 'date' : undefined}>
+        {appointmentWeek.map(({ weekday, date, day, label, current }) => (
+          <li key={date} className="week-day" aria-label={label} aria-current={current ? 'date' : undefined}>
             <span>{weekday}</span>
             <time dateTime={date}>{day}</time>
           </li>

@@ -109,6 +109,7 @@ export const inbox = [
 export const alternateShoot = '15:00';
 
 const weekdays = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+const fullDate = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeZone: 'UTC' });
 const weekStart = new Date(`${appointment.date}T00:00:00Z`);
 weekStart.setUTCDate(weekStart.getUTCDate() - (weekStart.getUTCDay() + 6) % 7);
 
@@ -116,5 +117,11 @@ export const appointmentWeek = weekdays.map((weekday, index) => {
   const day = new Date(weekStart);
   day.setUTCDate(day.getUTCDate() + index);
   const date = day.toISOString().slice(0, 10);
-  return { weekday, date, day: day.getUTCDate(), current: date === appointment.date };
+  return {
+    weekday,
+    date,
+    day: day.getUTCDate(),
+    label: fullDate.format(day),
+    current: date === appointment.date,
+  };
 });

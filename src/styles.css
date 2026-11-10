@@ -178,7 +178,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding: 0;
 }
 
-.service-card { align-content: start; }
+.card-grid > .stack { align-content: start; }
 .price { color: var(--action); }
 .price strong { font-size: 1.125rem; }
 
@@ -277,6 +277,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-radius: var(--radius-sm);
   background: var(--paper);
 }
+
+.inbox-entry, .fact { align-content: start; }
 
 .inbox-entry.current { border: 1px solid var(--green-ink); }
 .resource-entry.conflict { color: var(--red-ink); background: var(--red-bg); }
