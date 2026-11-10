@@ -149,3 +149,108 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .shell { padding-inline: var(--space-6); }
   .surface { padding: var(--space-5); }
 }
+
+.services-page { display: grid; gap: var(--space-7); }
+
+.hero { display: grid; align-items: center; gap: var(--space-5); }
+.hero h1 {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.eyebrow { color: var(--action); font-weight: 750; }
+.intro { color: var(--muted); max-inline-size: 54ch; }
+
+.studio-art {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 32rem;
+  block-size: auto;
+  justify-self: center;
+}
+
+.card-grid, .messages {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+.service-card { align-content: start; }
+.price { color: var(--action); }
+.price strong { font-size: 1.125rem; }
+
+.step-number {
+  display: grid;
+  place-items: center;
+  inline-size: var(--space-6);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--gold-bg);
+  color: var(--gold-ink);
+  font-weight: 750;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.message {
+  display: grid;
+  gap: var(--space-1);
+  justify-self: start;
+  max-inline-size: min(100%, 42ch);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+.message-customer {
+  justify-self: end;
+  background: var(--gold-bg);
+  color: var(--gold-ink);
+}
+
+.message-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+}
+.message-meta time { color: var(--muted); }
+
+.composer {
+  gap: var(--space-2);
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--line);
+}
+.composer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.composer-row input {
+  flex: 1 1 13rem;
+  min-inline-size: 0;
+  min-block-size: var(--target);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+}
+.composer-row input::placeholder { color: var(--muted); opacity: 1; }
+
+@media (min-width: 48rem) {
+  .hero { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-7); }
+  .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 64rem) {
+  .services-page { gap: var(--space-8); }
+}

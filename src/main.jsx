@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import Services from './screens/Services.jsx';
 import './styles.css';
 
 const routes = {
-  '/': { title: 'Dịch vụ và tư vấn', role: 'Khách hàng' },
+  '/': { title: 'Dịch vụ và tư vấn', role: 'Khách hàng', Screen: Services },
   '/advice': { title: 'Tư vấn và lịch tài nguyên', role: 'Thảo · Admin' },
   '/review': { title: 'Lịch chụp của tôi', role: 'Linh · Khách hàng' },
 };
@@ -17,6 +18,7 @@ function App() {
   const [path, setPath] = useState(readRoute);
   const main = useRef(null);
   const route = routes[path];
+  const { Screen } = route;
 
   useEffect(() => {
     const onHashChange = () => setPath(readRoute());
@@ -47,7 +49,7 @@ function App() {
         </nav>
       </header>
       <main className="shell page" ref={main} tabIndex={-1}>
-        <h1>{route.title}</h1>
+        <>{Screen ? <Screen /> : <h1>{route.title}</h1>}</>
       </main>
       <footer className="site-footer">
         <div className="shell">GradStudio · Studio ảnh tốt nghiệp và chân dung</div>
