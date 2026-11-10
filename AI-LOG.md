@@ -41,3 +41,10 @@ Yêu cầu: Rà lại ảnh và cây accessibility trên bản production rồi 
 Giữ: Cả ba route đều mở độc lập. Hai liên kết chính và nút Back hoạt động trong kiểm thử.
 Thay đổi: CSS ban đầu làm ba nhãn trạng thái một dòng cao 49, 33, 49px ở 768px. Phép đo trên ảnh/tablet xác nhận lỗi căn hàng. Đặt align-content ở đầu cho các thẻ và đo lại 33, 33, 33px. Cây accessibility trước đó chỉ có T7 và 24. Thêm tên ngày đầy đủ, kiểm tra lại cây đọc được “Thứ Bảy, 24 tháng 10, 2026”.
 Loại: Dùng HTML rỗng của Vite làm đầu vào kiểm định. Cả ba kết quả Nu lấy từ outerHTML sau khi React render từng route, thêm doctype. 9 lượt Chromium cuối không gửi request ngoài loopback. Xem checks/production-qa.txt.
+
+## 2026-11-11 — Hồ sơ nộp
+Công cụ: Codex.
+Yêu cầu: Lưu prompt thật, hồ sơ nhóm, ảnh, kiểm định, bản build và tự đánh giá.
+Giữ: Ba kết quả Nu cục bộ, chín ảnh từ Chromium và phần chưa kiểm thử trong báo cáo tự đánh giá.
+Thay đổi: Ghi rõ nguồn kết quả kiểm định vì endpoint trực tuyến trả 403. Chạy lại npm ci --offline và npm run build ở thư mục sạch, so sánh dist trùng từng byte.
+Loại: Dùng ảnh hoặc kết quả từ build trước khi sửa QA.

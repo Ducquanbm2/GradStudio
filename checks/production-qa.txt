@@ -1,0 +1,20 @@
+Production build via Vite Preview, JavaScript enabled, requests restricted to http://127.0.0.1:4173.
+Chromium checks of direct routes, accessible roles, keyboard, links, geometry and computed styles.
+index @ 360px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.25:1; external requests 0
+advice @ 360px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.25:1; external requests 0
+review @ 360px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.95:1; external requests 0
+index @ 768px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.25:1; external requests 0
+advice @ 768px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.25:1; external requests 0
+review @ 768px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.95:1; external requests 0
+index @ 1280px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.25:1; external requests 0
+advice @ 1280px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.25:1; external requests 0
+review @ 1280px: viewport, content, controls, labels, landmarks, keyboard and navigation OK; min text 16px; min contrast 6.95:1; external requests 0
+Full forward flow and browser Back OK
+
+Tablet status and week accessibility regression checks
+Heights of single-line inbox status badges at 768px: [ 33, 33, 33 ]
+Accessible selected day: - listitem "Thứ Bảy, 24 tháng 10, 2026":
+  - text: T7
+  - time: "24"
+
+Clean offline npm ci + npm run build reproduced dist byte for byte.
