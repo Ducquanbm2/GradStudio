@@ -20,3 +20,10 @@ Yêu cầu: Hiển thị ba dịch vụ, câu hỏi 09:00 và phản hồi studi
 Giữ: Ba mức giá từ đề bài, minh họa SVG tự vẽ và chat trong luồng trang.
 Thay đổi: Tách giá tham khảo của dịch vụ Tốt nghiệp khỏi giá gói Premium. Đổi copy giữ lịch để có bước kiểm tra lại tài nguyên.
 Loại: Chat nổi và shortcut dạng hash rỗng. Chromium qua bản Vite Preview ở 360, 768, 1280px kiểm tra nội dung, link, label, focus và kích thước vùng bấm. Tương phản chữ thấp nhất đo được là 6,25:1.
+
+## 2026-11-11 — Màn 2, tư vấn và xử lý trùng lịch
+Công cụ: Codex.
+Yêu cầu: Hiển thị cảnh Linh đã đồng ý, lịch tài nguyên và Booking mới với liên kết Tạo booking.
+Giữ: Nội dung hỏi, đề xuất và đồng ý từ dữ liệu chung. Hiển thị rõ 09:00 trùng lịch và 14:00 đã chọn.
+Thay đổi: Thay các label không gắn với input trong bản HTML cũ bằng danh sách mô tả cho phần đặt lịch điền sẵn. Dùng cuộn trang cho cả chat và Booking mới.
+Loại: Các tab điều phối chưa có đích và khung cuộn riêng của chat. Chromium qua bản production đạt các kiểm tra ở 360, 768, 1280px. Nu HTML Checker kiểm tra HTML đã render của Màn 1 và Màn 2 với 0 lỗi.

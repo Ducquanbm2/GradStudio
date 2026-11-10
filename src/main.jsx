@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import Services from './screens/Services.jsx';
+import Advice from './screens/Advice.jsx';
 import './styles.css';
 
 const routes = {
   '/': { title: 'Dịch vụ và tư vấn', role: 'Khách hàng', Screen: Services },
-  '/advice': { title: 'Tư vấn và lịch tài nguyên', role: 'Thảo · Admin' },
+  '/advice': { title: 'Tư vấn và lịch tài nguyên', role: 'Thảo · Admin', Screen: Advice },
   '/review': { title: 'Lịch chụp của tôi', role: 'Linh · Khách hàng' },
 };
 

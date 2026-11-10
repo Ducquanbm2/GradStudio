@@ -91,3 +91,19 @@ export const agreedMessages = [
     text: `Dạ em đồng ý make-up lúc ${makeup.start} và chụp lúc ${shoot.start} ạ.`,
   },
 ];
+
+export const inbox = [
+  { name: customer, preview: initialMessages[0].text, status: conversationStatuses.agreed, current: true },
+  {
+    name: 'Nguyễn Hoàng Minh Châu Anh',
+    preview: 'Lớp mình cần tư vấn gói chụp kỷ yếu kết hợp ảnh tập thể ngoài trời và thuê trang phục.',
+    status: conversationStatuses.unanswered,
+  },
+  {
+    name: 'Minh Khang',
+    preview: 'Mình muốn hỏi về gói chụp chân dung để làm CV.',
+    status: conversationStatuses.advising,
+  },
+];
+
+export const alternateShoot = '15:00';
