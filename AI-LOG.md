@@ -27,3 +27,10 @@ Yêu cầu: Hiển thị cảnh Linh đã đồng ý, lịch tài nguyên và Bo
 Giữ: Nội dung hỏi, đề xuất và đồng ý từ dữ liệu chung. Hiển thị rõ 09:00 trùng lịch và 14:00 đã chọn.
 Thay đổi: Thay các label không gắn với input trong bản HTML cũ bằng danh sách mô tả cho phần đặt lịch điền sẵn. Dùng cuộn trang cho cả chat và Booking mới.
 Loại: Các tab điều phối chưa có đích và khung cuộn riêng của chat. Chromium qua bản production đạt các kiểm tra ở 360, 768, 1280px. Nu HTML Checker kiểm tra HTML đã render của Màn 1 và Màn 2 với 0 lỗi.
+
+## 2026-11-11 — Màn 3, xem lịch hẹn và đặt cọc
+Công cụ: Codex.
+Yêu cầu: Đánh dấu 24/10 trong lịch tuần, gạch giờ cũ và cho Linh xem lịch mới cùng số tiền cọc.
+Giữ: Mã GS-1024, giờ make-up/chụp và số tiền tính từ cùng dữ liệu với hai màn trước.
+Thay đổi: Đánh dấu ngày bằng cả chữ và trạng thái aria-current. Hiển thị 09:00 bằng thẻ del và giải thích đó là giờ yêu cầu ban đầu.
+Loại: Nút xác nhận giờ lần hai và thanh toán giả lập. Chromium qua bản production đạt các kiểm tra ở 360, 768, 1280px. Nu HTML Checker kiểm tra HTML đã render với 0 lỗi.

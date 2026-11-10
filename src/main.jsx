@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import Services from './screens/Services.jsx';
 import Advice from './screens/Advice.jsx';
+import Review from './screens/Review.jsx';
+import { appointment } from './data.js';
 import './styles.css';
 
 const routes = {
   '/': { title: 'Dịch vụ và tư vấn', role: 'Khách hàng', Screen: Services },
-  '/advice': { title: 'Tư vấn và lịch tài nguyên', role: 'Thảo · Admin', Screen: Advice },
-  '/review': { title: 'Lịch chụp của tôi', role: 'Linh · Khách hàng' },
+  '/advice': { title: 'Tư vấn và lịch tài nguyên', role: `${appointment.admin} · Admin`, Screen: Advice },
+  '/review': { title: 'Lịch chụp của tôi', role: `${appointment.customer} · Khách hàng`, Screen: Review },
 };
 
 function readRoute() {
@@ -50,7 +52,7 @@ function App() {
         </nav>
       </header>
       <main className="shell page" ref={main} tabIndex={-1}>
-        <>{Screen ? <Screen /> : <h1>{route.title}</h1>}</>
+        <Screen />
       </main>
       <footer className="site-footer">
         <div className="shell">GradStudio · Studio ảnh tốt nghiệp và chân dung</div>

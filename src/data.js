@@ -57,7 +57,7 @@ export const formatInterval = ({ start, end }) => `${start}–${end}`;
 export const deposit = appointment.price * appointment.depositRate / 100;
 export const remaining = appointment.price - deposit;
 export const agreedStatus = `Đã thống nhất lịch · ${bookingStatuses.awaitingDeposit}`;
-export const holdPolicy = 'Lịch được giữ sau khi thanh toán cọc thành công và studio kiểm tra lại tài nguyên.';
+export const holdPolicy = 'Lịch được giữ sau khi thanh toán cọc thành công và hệ thống kiểm tra lại tài nguyên.';
 
 const { customer, admin, shortDate, requested, conflict, makeup, shoot } = appointment;
 
@@ -107,3 +107,14 @@ export const inbox = [
 ];
 
 export const alternateShoot = '15:00';
+
+const weekdays = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+const weekStart = new Date(`${appointment.date}T00:00:00Z`);
+weekStart.setUTCDate(weekStart.getUTCDate() - (weekStart.getUTCDay() + 6) % 7);
+
+export const appointmentWeek = weekdays.map((weekday, index) => {
+  const day = new Date(weekStart);
+  day.setUTCDate(day.getUTCDate() + index);
+  const date = day.toISOString().slice(0, 10);
+  return { weekday, date, day: day.getUTCDate(), current: date === appointment.date };
+});
