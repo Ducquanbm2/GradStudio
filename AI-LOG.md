@@ -59,3 +59,26 @@ Loại: Hero minh họa cũ, các hàng thẻ quy trình nằm riêng và bố c
 ### Prompt ảnh hero
 
 > Use case: photorealistic-natural. Asset type: editorial hero photograph for a premium Vietnamese graduation photography studio website with a white and fresh blue visual identity. Create a landscape 3:2 photograph of a minimalist daylight photography set. A rich cobalt-blue graduation cap with a fine blue tassel rests on a clean ivory plinth next to a simple tied white diploma, set against a pale powder-blue cyclorama. A sliver of a silver light stand at the edge quietly suggests the studio. Bright white side light with one softly defined diagonal architectural shadow, real fabric and matte materials, gallery-like art direction and generous breathing room. Place the main objects in the central area so a tighter crop still shows both. No people, faces, logos, lettering, watermarks, UI or frames.
+
+## PA#3
+
+### 2026-11-26 — Update AGENTS.md for PA#3
+Tool: Antigravity.
+Request: Rewrite `AGENTS.md` for PA#3 adhering to the `BrowserRouter` + Tailwind CSS + `react-hook-form` stack, enforce API contract and mock rules, and incorporate the automated `AI-LOG.md` protocol.
+Kept: Responsive requirements (`360px`, `768px`, `1280px`), semantic/accessibility standards, GradStudio business fixtures (`GS-1024`), and Git history preservation principles from PA#2.
+Changed: Updated stack to React + Vite inside `client/`, `BrowserRouter`, Tailwind CSS, and `react-hook-form`; added mandatory contract (`docs/api/`) and mock (`mock/server.mjs`, 4 `MOCK_MODE` modes) rules, Auth Context, data state handling (`loading`/`error`/`empty`), and automated logging requirement under `## PA#3`. Cross-checked against `docs/PA#3/PA3-rubric-react-front-end.pdf` (criteria 5, 6, 7, 8, 9).
+Rejected: Obsolete PA#2 constraints (prohibiting router libraries and CSS frameworks, restricting to 3 static hash routes, and hard-coding fixture data into components).
+
+### 2026-11-26 — Translate AGENTS.md and PA#3 logs to English
+Tool: Antigravity.
+Request: Translate `AGENTS.md` and the PA#3 logging entries in `AI-LOG.md` into English.
+Kept: All technical specifications, stack definitions, rubric criteria references, and existing PA#2 log entries above.
+Changed: Translated all sections of `AGENTS.md` into English (technology stack, contract/mock compliance, UI/accessibility rules, never list, logging protocol, and verification workflow); updated the template labels in `AI-LOG.md` under `## PA#3` to standard English fields (`Tool`, `Request`, `Kept`, `Changed`, `Rejected`).
+Rejected: None. Verified via `git status` that only `AGENTS.md` and `AI-LOG.md` were modified.
+
+### 2026-11-27 — Task T02: Install react-router-dom and configure Vite proxy
+Tool: Antigravity.
+Request: Execute task T02: install `react-router-dom` in `client/package.json` and configure `client/vite.config.js` to forward relative `/api` calls to `http://localhost:3001` in both `server.proxy` and `preview.proxy`.
+Kept: Existing JSX configuration (`esbuild: { jsx: 'automatic' }`), React 19 dependencies, build scripts, and production build compatibility in `client/`.
+Changed: Added `react-router-dom` (^7.18.7) to `client/package.json` via `npm install`; updated `client/vite.config.js` to configure `server.proxy` and `preview.proxy` mapping `/api` to `http://localhost:3001` with `changeOrigin: true`; removed legacy `base: './'` for full `BrowserRouter` root-path compatibility. Rebuilt production bundle via `npm run build` in `client/dist/`. Verified proxy functionality on both dev (`npm run dev`) and preview (`npx vite preview`) servers with an active mock endpoint on port 3001 returning HTTP 200; checked `git diff -- docs/api mock` (clean, 0 changes).
+Rejected: Hardcoding backend URLs inside frontend code or relying solely on dev proxy without preview proxy.
